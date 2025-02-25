@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-4">
+        {{ form_errors(form) }}
+
+        {{ form_start(form, {'attr': {'id': 'pointForm'}}) }}
+        {{ form_row(form.street , {'attr': {'id': 'street', 'class': 'form-control'}}) }}
+        {{ form_row(form.city , {'attr': {'id': 'city', 'class': 'form-control'}}) }}
+        {{ form_row(form.postcode , {'attr': {'id': 'postcode', 'class': 'form-control'}}) }}
+        <div id="name-input" style="display: none;">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name , {'attr': {'id': 'name', 'class': 'form-control'}}) }}
+        </div>
+        {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+
+        {% if result is not null %}
+            <p>Liczba punktów: {{ result.items|length }}</p>
+            {% for point in result.items %}
+                <p>Punkt {{ loop.index }}: {{ point.name }} {{ point.addressDetails.street }} {{ point.addressDetails.buildingNumber }} {{ point.addressDetails.postCode }} {{ point.addressDetails.city }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
