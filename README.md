@@ -8,5 +8,6 @@
 
 ### Sposób 2 na uruchomienie apki
 ```shell
+    cp .env.dist .env
     docker compose up -d --build
 ```
