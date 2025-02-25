@@ -1,0 +1,27 @@
+services:
+  nginx:
+    build: docker/nginx
+    ports:
+      - "127.0.0.1:${APP_PORT}:${APP_PORT}"
+      - "127.0.0.1:${APP_PORT_SSL}:${APP_PORT_SSL}"
+    volumes:
+      - .:/var/www
+      - ./var/log/nginx/:/var/log/nginx
+    depends_on:
+      - php
+    networks:
+      - api
+
+  php:
+    build: docker/php
+    restart: on-failure
+    ports:
+      - "127.0.0.1:${PHP_PORT}:${PHP_PORT}"
+    volumes:
+      - .:/var/www:cached
+    networks:
+      - api
+
+
+networks:
+  api:
