@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+front_controller:
+    resource:
+        path: ../src/Presentation/Front/Controller
+        namespace: App\Presentation\Front\Controller
+    type: attribute
