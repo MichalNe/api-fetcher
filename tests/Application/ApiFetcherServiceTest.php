@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\Application;
 
 use App\Application\ApiFetcherService;
-use App\Application\DTO\Point\PointCollectionDTO;
 use App\Application\Strategy\ParameterEnum;
 use App\Application\Strategy\Point\PointFetcher;
 use App\Application\Strategy\Point\PointSerializer;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infrastructure;
 
 use App\Domain\Exception\PointFetcherException;
@@ -9,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class ApiClient
+readonly class ApiClient
 {
     public function __construct(
-        private readonly HttpClientInterface $httpClient,
-        private readonly LoggerInterface $logger,
-        private readonly string $url,
+        private HttpClientInterface $httpClient,
+        private LoggerInterface $logger,
+        private string $url,
     ) {
     }
 

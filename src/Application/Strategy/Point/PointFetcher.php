@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Application\Strategy\Point;
 
 use App\Application\DTO\Point\PointCollectionDTO;
